@@ -1,9 +1,5 @@
 # Sarearen Diagnostiko Txostena
 
-**Data:** _______________
-**Teknikaria:** _______________
-**Zerbitzaria:** _______________
-
 ---
 
 ## 1. Sare Konfigurazioa
@@ -16,22 +12,21 @@ ip addr show
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image15.png)
+
 
 **Emaitza Taula:**
 
 | Interfazea | IP Helbidea | Maskara | Egoera | MAC Helbidea |
 |------------|-------------|---------|--------|--------------|
-| ens18 | 192.168.201.X | /24 | UP | XX:XX:XX:XX:XX:XX |
+| ens18 | 192.168.20.107 | /24 | UP | bc:24:11:33:3b:81 |
 | lo | 127.0.0.1 | /8 | UP | 00:00:00:00:00:00 |
 
 **Ondorioak:**
-- ✅ IP helbidea ondo konfiguratuta: 192.168.201.X
-- ✅ Sare interfazea aktibo (UP)
-- ✅ Loopback interfazea ondo konfiguratuta
-- ⚠️ Arazoak (badaude): _________________
+- IP helbidea ondo konfiguratuta: 192.168.20.107
+- Sare interfazea aktibo (UP)
+- Loopback interfazea ondo konfiguratuta
 
 ---
 
@@ -43,20 +38,19 @@ ip route show
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image16.png)
+
 
 **Emaitza:**
 ```
-default via 192.168.201.1 dev ens18
-192.168.201.0/24 dev ens18 proto kernel scope link src 192.168.201.X
+default via 192.168.20.1 dev ens18
+192.168.20.0/24 dev ens18 proto kernel scope link src 192.168.20.107
 ```
 
 **Ondorioak:**
-- ✅ Gateway ondo konfiguratuta: 192.168.201.1
-- ✅ Sare lokala ondo definituta
-- ⚠️ Arazoak: _________________
+- Gateway ondo konfiguratuta: 192.168.20.1
+- Sare lokala ondo definituta
 
 ---
 
@@ -70,9 +64,9 @@ ping -c 4 192.168.201.1
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image17.png)
+
 
 **Emaitzak:**
 
@@ -81,13 +75,12 @@ ping -c 4 192.168.201.1
 | Pakete bidaliak | 4 |
 | Pakete jasotakoak | 4 |
 | Galera ehunekoa | 0% |
-| RTT min/avg/max | X/X/X ms |
+| RTT min/avg/max/mdev | 0,659/1,286/3,033/1,008 ms |
 
 **Ondorioak:**
-- ✅ Gateway-a iristegarria
-- ✅ Ez dago pakete galerarik
-- ✅ Latentzia normala (< 10ms)
-- ⚠️ Arazoak: _________________
+- Gateway-a iristegarria
+- Ez dago pakete galerarik
+- Latentzia normala (< 10ms)
 
 ---
 
@@ -99,9 +92,9 @@ ping -c 4 8.8.8.8
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image18.png)
+
 
 **Emaitzak:**
 
@@ -110,12 +103,11 @@ ping -c 4 8.8.8.8
 | Pakete bidaliak | 4 |
 | Pakete jasotakoak | 4 |
 | Galera ehunekoa | 0% |
-| RTT min/avg/max | X/X/X ms |
+| RTT min/avg/max/mdev | 9,238/10,659/13,333/1,582 ms |
 
 **Ondorioak:**
-- ✅ DNS zerbitzaria iristegarria
-- ✅ Internet konexioa funtzionatzen du
-- ⚠️ Arazoak: _________________
+- DNS zerbitzaria iristegarria
+- Internet konexioa funtzionatzen du
 
 ---
 
@@ -127,24 +119,22 @@ nslookup google.com
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image19.png)
 
 **Emaitza:**
 ```
-Server:     8.8.8.8
-Address:    8.8.8.8#53
+Server:     127.0.0.53
+Address:    127.0.0.53#53
 
 Non-authoritative answer:
 Name:   google.com
-Address: 142.250.X.X
+Address: 142.250.184.14
 ```
 
 **Ondorioak:**
-- ✅ DNS ebazpena ondo funtzionatzen du
-- ✅ Domeinuak ondo ebazten dira
-- ⚠️ Arazoak: _________________
+- DNS ebazpena ondo funtzionatzen du
+- Domeinuak ondo ebazten dira
 
 ---
 
@@ -156,9 +146,9 @@ ping -c 4 google.com
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image20.png)
+
 
 **Emaitzak:**
 
@@ -167,12 +157,11 @@ ping -c 4 google.com
 | Pakete bidaliak | 4 |
 | Pakete jasotakoak | 4 |
 | Galera ehunekoa | 0% |
-| RTT min/avg/max | X/X/X ms |
+| RTT min/avg/max/mdev | 9,685/10,325/10,750/0,423 ms |
 
 **Ondorioak:**
-- ✅ Internet konexioa ondo funtzionatzen du
-- ✅ DNS + routing guztia ondo
-- ⚠️ Arazoak: _________________
+- Internet konexioa ondo funtzionatzen du
+- DNS + routing guztia ondo
 
 ---
 
@@ -186,24 +175,24 @@ sudo ss -tuln
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image21.png)
+
 
 **Portuen Taula:**
 
-| Protokoloa | Portua | Egoera | Zerbitzua | Notas |
-|------------|--------|--------|-----------|-------|
-| TCP | 22 | LISTEN | SSH | ✅ Aktibatuta |
-| TCP | 21 | LISTEN | FTP | ✅ Aktibatuta |
-| TCP | 80 | LISTEN | HTTP | ✅ Aktibatuta |
-| TCP | 443 | LISTEN | HTTPS | ⚠️ Konfiguratu gabe |
+| Protokoloa | Portua | Egoera | Zerbitzua |
+|------------|--------|--------|-----------|
+| TCP | 22 | LISTEN | SSH |
+| TCP | 21 | LISTEN | FTP |
+| TCP | 80 | LISTEN | HTTP |
+| TCP | 443 | LISTEN | HTTPS |
 
 **Ondorioak:**
-- ✅ SSH portua (22) entzuten
-- ✅ FTP portua (21) entzuten
-- ✅ HTTP portua (80) entzuten
-- ⚠️ Beste arazoak: _________________
+- SSH portua (22) entzuten
+- FTP portua (21) entzuten
+- HTTP portua (80) entzuten
+- HTTPS portua (443) entzuten
 
 ---
 
@@ -215,53 +204,19 @@ sudo ss -tan | head -20
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image22.png)
+
 
 **Konexio kopurua egoeraren arabera:**
 
 | Egoera | Konexio Kopurua |
 |--------|-----------------|
-| ESTAB | X |
-| TIME-WAIT | X |
-| LISTEN | X |
-| SYN-SENT | X |
+| LISTEN | 9 |
 
 **Ondorioak:**
-- ✅ Konexio kopuru normala
-- ✅ Ez dago konexio anomalorik
-- ⚠️ Arazoak: _________________
-
----
-
-## 4. Firewall Konfigurazioa
-
-### 4.1 UFW Egoera
-
-**Komandoa exekutatua:**
-```bash
-sudo ufw status verbose
-```
-
-**Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
-
-**Arau Taula:**
-
-| Portua/Zerbitzua | Ekintza | Noiztik | Notas |
-|------------------|---------|---------|-------|
-| 22/tcp (SSH) | ALLOW | Anywhere | ✅ |
-| 21/tcp (FTP) | ALLOW | Anywhere | ✅ |
-| 80/tcp (HTTP) | ALLOW | Anywhere | ✅ |
-| 443/tcp (HTTPS) | ALLOW | Anywhere | ⚠️ |
-
-**Ondorioak:**
-- ✅ Firewall aktibatuta
-- ✅ Beharrezko portuak irekita
-- ⚠️ Arazoak: _________________
+-  Konexio kopuru normala
+-  Ez dago konexio anomalorik
 
 ---
 
@@ -275,22 +230,13 @@ iperf3 -c ZERBITZARIA
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
 
-**Emaitzak:**
+![alt text](img/image23.png)
 
-| Metrika | Balioa |
-|---------|--------|
-| Bandwidth | XX Mbits/sec |
-| Transfer | XX MBytes |
-| Retransmissions | XX |
 
 **Ondorioak:**
-- ✅ Bandwidth esperatua
-- ✅ Transfer egonkorra
-- ⚠️ Arazoak: _________________
+-  Bandwidth esperatua
+-  Transfer egonkorra
 
 ---
 
@@ -302,25 +248,21 @@ ping -c 100 192.168.201.1
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
+
+![alt text](img/image24.png)
+
 
 **Estatistikak:**
 
 | Metrika | Balioa |
 |---------|--------|
-| Pakete kopurua | 100 |
-| Galera % | X% |
-| RTT min | X ms |
-| RTT avg | X ms |
-| RTT max | X ms |
-| RTT mdev | X ms |
+| Pakete kopurua | 8 |
+| Galera % | 0% |
+| RTT min/avg/max/mdev | 0,684/0,730/0,765/0,023 ms |
 
 **Ondorioak:**
-- ✅ Latentzia baxua
-- ✅ Galera txikia (< 1%)
-- ⚠️ Arazoak: _________________
+-  Latentzia baxua
+-  Ez dago galerarik (0%)
 
 ---
 
@@ -332,110 +274,25 @@ traceroute google.com
 ```
 
 **Pantaila-argazkia:**
-```
-[HEMEN TXERTATU PANTAILA-ARGAZKIA]
-```
 
-**Emaitzak:**
+![alt text](img/image25.png)
 
-| Hop | IP Helbidea | Hostname | RTT |
-|-----|-------------|----------|-----|
-| 1 | 192.168.201.1 | Gateway | X ms |
-| 2-N | ... | ... | X ms |
 
 **Ondorioak:**
-- ✅ Bidea normala
-- ✅ Ez dago timeout-ik
-- ⚠️ Arazoak: _________________
+-  Bidea normala
+-  Ez dago timeout-ik
 
 ---
 
-## 6. Ondorio Orokorrak
-
-### 6.1 Egoera Laburpena
+## 6. Ondorio Orokorrak - Egoera Laburpena
 
 | Proba | Egoera | Azalpenak |
 |-------|--------|-----------|
-| IP Konfigurazioa | ✅ Ondo | IP estatikoa ondo konfiguratuta |
-| Gateway Konexioa | ✅ Ondo | Gateway-ra iristen da |
-| DNS Ebazpena | ✅ Ondo | Domeinuak ondo ebazten dira |
-| Internet Konexioa | ✅ Ondo | Kanpoko zerbitzariak iristegarriak |
-| Zerbitzu Portuak | ✅ Ondo | Beharrezko portuak irekita |
-| Firewall | ✅ Ondo | Arauak ondo konfiguratuta |
-| Errendimendua | ✅ Ondo | Bandwidth eta latentzia normalak |
-
-### 6.2 Detektatutako Arazoak
-
-1. **Arazo deskribapena 1:**
-   - Arrazoia: _________________
-   - Konponketa proposatua: _________________
-   - Lehentasuna: Alta/Ertaina/Baxua
-
-2. **Arazo deskribapena 2:**
-   - Arrazoia: _________________
-   - Konponketa proposatua: _________________
-   - Lehentasuna: Alta/Ertaina/Baxua
-
-### 6.3 Hobekuntza Gomendioak
-
-1. _________________
-2. _________________
-3. _________________
+| IP Konfigurazioa |  Ondo | IP estatikoa ondo konfiguratuta |
+| Gateway Konexioa |  Ondo | Gateway-ra iristen da |
+| DNS Ebazpena |  Ondo | Domeinuak ondo ebazten dira |
+| Internet Konexioa |  Ondo | Kanpoko zerbitzariak iristegarriak |
+| Zerbitzu Portuak |  Ondo | Beharrezko portuak irekita |
+| Errendimendua |  Ondo | Bandwidth eta latentzia normalak |
 
 ---
-
-## 7. Eranskinak
-
-### 7.1 Sare Diagrama
-
-```
-[HEMEN TXERTATU SARE DIAGRAMA]
-
-Internet
-    ↓
-Gateway (192.168.201.1)
-    ↓
-Switch/Router
-    ↓
-Zerbitzaria (192.168.201.X)
-```
-
-### 7.2 Komando Erabilgarriak
-
-```bash
-# Sare egoera
-ip addr show
-ip route show
-ip link show
-
-# Konektibitate
-ping -c 4 IP
-traceroute DOMAIN
-mtr DOMAIN
-
-# Portuak
-ss -tuln
-netstat -tuln
-nmap localhost
-
-# DNS
-nslookup DOMAIN
-dig DOMAIN
-host DOMAIN
-
-# Firewall
-sudo ufw status
-sudo iptables -L
-
-# Errendimendua
-iperf3 -s
-iperf3 -c SERVER
-```
-
----
-
-**Txostenaren Sinadura:**
-
-Teknikaria: _______________
-Data: _______________
-Sinadura: _______________
