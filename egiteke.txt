@@ -1,0 +1,47 @@
+1. Script-ak instalatzeko:
+bash# Deskargatu script-ak
+sudo nano /usr/local/bin/backup.sh
+sudo nano /usr/local/bin/monitor.sh
+
+# Eman baimenak
+sudo chmod +x /usr/local/bin/backup.sh
+sudo chmod +x /usr/local/bin/monitor.sh
+
+# Sortu direktorioak
+sudo mkdir -p /backup
+sudo mkdir -p /var/log/monitor
+2. Cron programatzeko:
+bashsudo crontab -e
+# Kopiatu crontab-config.txt-ko lerroak
+3. GitHub Wiki sortzeko:
+
+Joan zure GitHub repository-ra
+Klikatu "Wiki" tab-era
+Sortu orri berriak dokumentazio bakoitzarekin
+Kopiatu markdown edukiak
+
+📊 Pantaila-argazkiak Hartzeko
+Proiektua osatzeko, exekutatu behar dituzu komando hauek eta pantaila-argazkiak hartu:
+bash# Monitorizazioa
+top
+htop
+df -h
+free -h
+uptime
+iostat
+
+# Zerbitzuak
+sudo systemctl status ssh
+sudo systemctl status vsftpd
+sudo systemctl status apache2
+
+# Sarea
+ip addr show
+ip route show
+ping -c 4 192.168.201.1
+ping -c 4 8.8.8.8
+nslookup google.com
+
+# Script probak
+sudo /usr/local/bin/backup.sh
+sudo /usr/local/bin/monitor.sh
